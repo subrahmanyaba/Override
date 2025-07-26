@@ -1,16 +1,11 @@
 # agent/adk_base.py
 class Tool:
     def run(self, *args, **kwargs):
-        raise NotImplementedError
+        raise NotImplementedError("Tool must implement the run() method.")
 
 class Agent:
-    def __init__(self, tools, llm):
-        self.tools = tools
-        self.llm = llm  # e.g., 'gemini-2.0-pro'
+    def __init__(self, tools: list):
+        self.tools = {tool.__class__.__name__: tool for tool in tools}
 
-    def run(self, prompt: str):
-        # Dumb planner for now: always call MixPlannerTool
-        for tool in self.tools:
-            if "Planner" in tool.__class__.__name__:
-                return tool.run(prompt)
-        return "No planner tool found."
+    def run(self, plan: dict):
+        raise NotImplementedError("Agent must implement the run() method.")

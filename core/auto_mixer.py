@@ -1,3 +1,4 @@
+import pdb
 from pydub import AudioSegment
 import json
 import os
@@ -10,10 +11,9 @@ class AutoMixer:
         self.meta_b = self.load_metadata(track_b_path)
 
     def load_metadata(self, track_path):
-        name = os.path.splitext(os.path.basename(track_path))[0]
-        meta_path = f"data/metadata/{name}.json"
+        meta_path = track_path.replace(".mp3", ".meta.json")
         if not os.path.exists(meta_path):
-            raise FileNotFoundError(f"Metadata not found for {name}")
+            raise FileNotFoundError(f"Metadata not found for {track_path}")
         with open(meta_path, "r") as f:
             return json.load(f)
 
@@ -46,6 +46,7 @@ class AutoMixer:
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         part_mix.export(output_path, format="mp3")
         print(f"Mix saved to: {output_path}")
+        return output_path
 
     def equal_length_blend(self, output_path="data/mixed/equal_blend.mp3"):
         print("Creating full-length blend...")

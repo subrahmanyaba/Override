@@ -1,0 +1,9 @@
+2025-08-04 22:11:28,565 - utils.logger - INFO - Starting DJ Orchestrator...
+2025-08-04 22:11:28,567 - utils.logger - INFO - Orchestrator initialized successfully
+2025-08-04 22:11:28,567 - utils.logger - ERROR - Fatal error in main():
+Traceback (most recent call last):
+  File "D:\work\Override\override\run_orchestrator.py", line 33, in main
+    orchestrator.run_mix_session(duration_minutes=60)
+  File "D:\work\Override\override\orchestrator\dj_orchestrator.py", line 131, in run_mix_session
+    raise ValueError("No valid tracks to mix")
+ValueError: No valid tracks to mix

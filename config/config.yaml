@@ -1,0 +1,12 @@
+gemini:
+  api_key: "AIzaSyBPr74Ze7mnYMwzKqddHNKbS6P2y8qPyyc"  # Get from Google AI Studio
+  model: "gemini-2.0-flash"
+
+youtube:
+  download_dir: "./downloads"
+  format: "bestaudio/best"
+  ffmpeg_path: "ffmpeg"  # Must be in PATH
+
+playlist:
+  min_unique_songs: 20    # Require 20 new songs before repeats
+  ban_repeats_for: 10     # Don't repeat within 10 songs

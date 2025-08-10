@@ -1,10 +1,16 @@
-pygame==2.1.3
-librosa==0.10.0.post2
-matplotlib==3.7.1
-numpy==1.24.3
-scipy==1.10.1
-soundfile==0.12.1
-pydub==0.25.1
-pandas==2.0.2
-scikit-learn==1.2.2
-openai==1.14.3
+# Core Libraries
+librosa==0.10.1      # Audio analysis (BPM, beats, energy)
+numpy==1.26.0        # Numerical operations
+PyYAML==6.0.1        # Config file parsing
+
+# Audio Processing
+soundfile==0.12.1    # For reading/writing audio files
+pydub==0.25.1        # Audio manipulation (crossfading, format conversion)
+ffmpeg-python==0.2.0 # FFmpeg integration (required for pydub)
+
+# Utilities
+tqdm==4.66.1         # Progress bars for long operations
+python-dotenv==1.0.0 # Environment variables (if needed)
+
+# Logging/Error Handling
+loguru==0.7.2        # Simplified logging (alternative to logging module)
